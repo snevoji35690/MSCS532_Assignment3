@@ -29,7 +29,6 @@ python quicksort.py
 MSCS532_Assignment3/
 │
 ├── quicksort.py         # Main implementation
-├── test_randomized_quicksort.py    # Optional test cases
 ├── README.md                       # This file
 
 
