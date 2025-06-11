@@ -1,45 +1,62 @@
-# MSCS532 - Assignment 3: Quicksort
+## Assignment 3: Randomized Quicksort & Hash Table with Chaining
+Description
+This project implements two major components in Python:
 
-## Description
+Randomized Quicksort Algorithm
+An optimized version of the Quicksort algorithm where the pivot is selected randomly to prevent poor performance on sorted or patterned input.
 
-This project implements the **Quicksort** algorithm in Python. The algorithm is an enhancement of the standard Quicksort, where the pivot is chosen randomly to avoid the worst-case performance that occurs when the pivot is poorly chosen (e.g., in already sorted arrays).
-
-The code handles:
-- Arrays with unique and repeated elements
-- Empty arrays
-- Already sorted arrays
-- Reverse sorted arrays
+Hash Table with Chaining
+A custom-built hash table that uses chaining to handle collisions and a universal hash function to ensure even distribution of keys.
+Both components are implemented for educational purposes and performance analysis.
 
 ## How to Run the Code
+Requirements
+Python 3.6 or higher
 
-### Requirements
-- Python 3.6 or higher
+## Setup Instructions
+Clone the Repository
+git clone https://github.com/snevoji35690/MSCS532_Assignment3.git
+cd MSCS532_Assignment3
 
-### Steps
+## Run the Quicksort Script
+python3 quicksort.py
+python3 hashtable.py
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/snevoji35690/MSCS532_Assignment3.git
-   cd MSCS532_Assignment3
-
-### Run  the python script
-python quicksort.py
-
-### File Structure
+## File Structure
 MSCS532_Assignment3/
 │
-├── quicksort.py         # Main implementation
-├── README.md                       # This file
+├── hashtable.py         # Hash table implementation using chaining
+├── quicksort.py         # Randomized and Deterministic Quicksort implementations
+├── README.md            # This documentation
 
+## Summary of Findings – Randomized Quicksort (Part 3)
+Observations
+Random pivot selection improves average performance and avoids consistently unbalanced partitions.
+The algorithm handles:
+Empty arrays
+Arrays with duplicates
+Sorted and reverse-sorted arrays
+Consistent performance is observed across most input types.
 
-### Summary of Findings
-Random pivot selection significantly improves average performance by reducing the chance of encountering the worst-case time complexity 
-𝑂(n^2)
-The algorithm consistently performs well on random and partially sorted inputs.
-Performance degrades only slightly with repeated elements, but not significantly.
-Time complexity observed:
-Average: O(n log n)
-Worst-case: O(n²) (rare due to random pivot)
-Randomized Quicksort outperforms deterministic Quicksort when input patterns are unpredictable.
+## Time Complexity
+Scenario	Randomized Quicksort
+Best Case      𝑂(𝑛log𝑛)
+Average Case	𝑂(𝑛log𝑛)
+Worst Case  	𝑂(𝑛2)(rare)
 
+## Key Findings
+Randomized Quicksort outperforms Deterministic Quicksort, especially on sorted, reversed, or duplicate-heavy arrays.
+Deterministic Quicksort, which uses the first element as a pivot, is highly input-sensitive and can degrade to 𝑂(𝑛2).
+Randomization provides robustness and input independence in practice.
 
+## Hash Table Summary 
+Uses chaining to resolve collisions.
+Employs a universal hash function for uniform key distribution.
+Supports efficient:
+insert(key, value)
+search(key)
+delete(key)
+
+## Performance Insight
+Expected operation time: 𝑂(1+𝛼), where 𝛼=𝑛/𝑚 (load factor).
+Maintaining a low load factor via dynamic resizing helps retain constant-time performance.
